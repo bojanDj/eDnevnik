@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <definition name="admin-definition"
+                template="/WEB-INF/pages/tiles/layout/defaultLayout.jsp">
+        <put-attribute name="title" value=""></put-attribute>
+        <put-attribute name="header"
+                       value="/WEB-INF/pages/tiles/template/adminHeader.jsp">
+        </put-attribute>
+        <put-attribute name="footer"
+                       value="/WEB-INF/pages/tiles/template/defaultFooter.jsp">
+        </put-attribute>
+     
+        <put-attribute name="body" value=""></put-attribute>
+    </definition>
+    
+    <definition name="user-definition"
+                template="/WEB-INF/pages/tiles/layout/defaultLayout.jsp">
+        <put-attribute name="title" value=""></put-attribute>
+        <put-attribute name="header"
+                       value="/WEB-INF/pages/tiles/template/userHeader.jsp">
+        </put-attribute>
+        <put-attribute name="footer"
+                       value="/WEB-INF/pages/tiles/template/defaultFooter.jsp">
+        </put-attribute>
+     
+        <put-attribute name="body" value=""></put-attribute>
+    </definition>
+        
+     <!--#####################################################################################--> 
+     <!--EXCEPTION--> 
+<!--    <definition name="error/globalException"
+                extends="base-definition">
+        <put-attribute name="title"
+                       value="Exception">
+        </put-attribute>
+        <put-attribute name="body"
+                       value="/WEB-INF/pages/error/globalException.jsp">
+        </put-attribute>
+    </definition>	-->
+    
+    <definition name="admin/homeAdmin" extends="admin-definition">
+        <put-attribute name="title" value="Pocetna strana"></put-attribute>
+        <put-attribute name="body"
+                       value="/WEB-INF/pages/professor/indexAdmin.jsp">
+        </put-attribute>
+    </definition>
+    
+    <definition name="homeUser" extends="user-definition">
+        <put-attribute name="title" value="Pocetna strana"></put-attribute>
+        <put-attribute name="body"
+                       value="/WEB-INF/pages/parent/indexUser.jsp">
+        </put-attribute>
+    </definition>	
+    
+    <definition name="admin/classesAdmin" extends="admin-definition">
+        <put-attribute name="title" value="Izbor odeljenja"></put-attribute>
+        <put-attribute name="body"
+                       value="/WEB-INF/pages/professor/classesAdmin.jsp">
+        </put-attribute>
+    </definition>
+    
+    <definition name="admin/studentsAdmin" extends="admin-definition">
+        <put-attribute name="title" value="Izbor ucenika"></put-attribute>
+        <put-attribute name="body"
+                       value="/WEB-INF/pages/professor/studentsAdmin.jsp">
+        </put-attribute>
+    </definition>
+    
+    <definition name="admin/addGrade" extends="admin-definition">
+        <put-attribute name="title" value="Dodavanje ocene"></put-attribute>
+        <put-attribute name="body"
+                       value="/WEB-INF/pages/professor/addGrade.jsp">
+        </put-attribute>
+    </definition>
+    
+    <definition name="admin/updateGrade" extends="admin-definition">
+        <put-attribute name="title" value="Izmena ocene"></put-attribute>
+        <put-attribute name="body"
+                       value="/WEB-INF/pages/professor/updateGrade.jsp">
+        </put-attribute>
+    </definition>
+
+    <definition name="admin/profileStudent" extends="admin-definition">
+        <put-attribute name="title" value="Profil ucenika"></put-attribute>
+        <put-attribute name="body"
+                       value="/WEB-INF/pages/professor/profileStudent.jsp">
+        </put-attribute>
+    </definition>
+    
+    <definition name="login"
+                template="/WEB-INF/pages/tiles/layout/defaultLayout.jsp">
+        <put-attribute name="title" value="Prijava"></put-attribute>
+        <put-attribute name="header"
+                       value="/WEB-INF/pages/tiles/template/defaultHeader.jsp">
+        </put-attribute>
+        <put-attribute name="footer"
+                       value="">
+        </put-attribute>
+        <put-attribute name="body"
+                    value="/WEB-INF/pages/login.jsp">
+        </put-attribute>
+    </definition>
+
+</tiles-definitions>
