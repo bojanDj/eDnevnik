@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import school.dto.FinalGrade;
 import school.service.ParentService;
 import school.repository.ParentRepository;
 
@@ -34,5 +35,10 @@ public class ParentServiceImpl implements ParentService {
     @Override
     public Long getIDByUsername(String username) {
         return userRepository.getIDByUsername(username);
+    }
+
+    @Override
+    public ArrayList<FinalGrade> getKonacna(Long studentID) {
+        return userRepository.getKonacna(studentID);
     }
 }

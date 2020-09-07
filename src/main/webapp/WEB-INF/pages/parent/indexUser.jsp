@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,6 +36,7 @@
       <h5 class="card-title">${kid.ime} ${kid.prezime}</h5>
       <p class="card-text">Adresa i telefon</p>
           <c:if test="${empty ocene}">
+              
              <a href="<c:url value = "${id}/${kid.ucenikID}#glades"/>" class="btn btn-primary">Vidi ocene</a>
           </c:if>
              <c:if test="${not empty ocene}">
@@ -51,11 +53,19 @@
      <h2>${ocene[0].ucenik.ime} ${ocene[0].ucenik.prezime}</h2>
      <c:forEach var = "predmet" items="${predmetiBezPonavljanja}">
     <h3>${predmet}</h3>
+    <c:if test="${not empty konacne}">    
+        <c:forEach var = "konacnaOcena" items="${konacne}">
+            <c:if test="${konacnaOcena.predmet.naziv == predmet}">    
+                <h3>Zakljucena ocena: ${konacnaOcena.broj}</h3>
+            </c:if>
+        </c:forEach>
+    </c:if>
     <table class="table">
         <thead class="thead-light">
           <tr>
             <th scope="col">Ocena</th>
             <th scope="col">Tip ocene</th>
+            <th scope="col">Datum</th>
             <th scope="col">Napomena</th>
           </tr>
         </thead>
@@ -65,6 +75,7 @@
                     <tr>
                     <td>${ocena.broj}</td>
                     <td>${ocena.tipOcene.naziv}</td>
+                    <td><fmt:formatDate pattern="dd-MM-yyyy" value="${ocena.datum}" /></td>
                     <td>${ocena.napomena}</td>
                      </tr>
                 </c:if>

@@ -118,7 +118,7 @@ public class GradeController {
         } else {
             k.setPredmet(adminService.findPredmetByID(predmetID));
             k.setUcenik(adminService.findStudentByID(studentID));
-            redirectAttributes.addFlashAttribute("konacna", gradeService.findKonacna(studentID,prof.getPredmet().getPredmetID()));
+            //redirectAttributes.addFlashAttribute("konacna", gradeService.findKonacna(studentID,prof.getPredmet().getPredmetID()));
             FinalGrade kon = gradeService.findKonacna(studentID,prof.getPredmet().getPredmetID());
             if (kon != null) {
                 k.setKonacnaID(kon.getKonacnaID());
@@ -192,7 +192,7 @@ public class GradeController {
         return new Grade();
     }
     @ModelAttribute(name = "konacna")
-    private FinalGrade getKonacna() {
-        return new FinalGrade();
+    private void getKonacna(Model model) {
+        model.addAttribute("konacna", new FinalGrade());
     }
 }

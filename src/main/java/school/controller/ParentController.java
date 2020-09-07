@@ -34,6 +34,7 @@ public class ParentController {
             modelAndView.addObject("kids", userService.getAllKids(id));
             ArrayList<Grade> ocene = userService.getAllGrades(studentID);
             modelAndView.addObject("ocene",ocene);
+            modelAndView.addObject("konacne", userService.getKonacna(studentID));
             ArrayList<String> bezPondavljanja = new ArrayList<>();
             for (Grade o: ocene) {
                 if (!bezPondavljanja.contains(o.getPredmet().getNaziv())) {

@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -42,6 +43,7 @@
           <tr>
             <th scope="col">Ocena</th>
             <th scope="col">Tip ocene</th>
+            <th scope="col">Datum</th>
             <th scope="col">Napomena</th>
             <c:if test="${empty zakljucena}">
                 <th scope="col">Izmeni</th>
@@ -56,6 +58,7 @@
             <tr>
             <td>${ocena.broj}</td>
             <td>${ocena.tipOcene.naziv}</td>
+            <td><fmt:formatDate pattern="dd-MM-yyyy" value="${ocena.datum}" /></td>
             <td>${ocena.napomena}</td>
             <c:if test="${empty zakljucena}">
                 <td><a href="${pageContext.request.contextPath}/admin/odeljenja/${razred}/${studentID}/${ocena.ocenaID}/update" class="btn btn-primary use-address" style="display: table-cell; vertical-align: middle">Izmeni</a></td>

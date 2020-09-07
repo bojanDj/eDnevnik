@@ -26,6 +26,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
+import school.dto.FinalGrade;
 import school.repository.ParentRepository;
 
 /**
@@ -68,5 +69,14 @@ public class ParentRepositoryImpl implements ParentRepository {
         Parent user = entityManager.createQuery(query,Parent.class).setParameter("username", username).getResultList().get(0);
         return user.getRoditeljID();
 
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public ArrayList<FinalGrade> getKonacna(Long studentID) {
+        String query = "Select k from FinalGrade k where ucenikID = "+studentID;
+        ArrayList<FinalGrade> lista = (ArrayList<FinalGrade>) entityManager.createQuery(query,FinalGrade.class).getResultList();
+        if (lista.isEmpty()) return null;
+        else return lista;
     }
 }

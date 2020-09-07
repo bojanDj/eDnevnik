@@ -11,6 +11,7 @@ import school.dto.Class;
 import school.dto.Student;
 import java.util.ArrayList;
 import java.util.List;
+import school.dto.FinalGrade;
 
 /**
  *
@@ -20,4 +21,5 @@ public interface ParentRepository {
     ArrayList<Student> getAllKids(Long userID);
     ArrayList<Grade> getAllGrades(Long studentID);
     Long getIDByUsername (String username);
+    ArrayList<FinalGrade> getKonacna(Long studentID);
 }

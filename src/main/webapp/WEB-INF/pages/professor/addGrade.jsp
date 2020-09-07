@@ -2,12 +2,14 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/fmt" prefix = "fmt" %>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Profesore dobrososli</title>
+<link href="${pageContext.request.contextPath}/resources/lib/date-selector-master/src/gm-date-selector.css" rel="stylesheet" />
 </head>
 <body>
 	
@@ -40,7 +42,12 @@
                       <form:option value = "3">Kontrolni</form:option>
                     </form:select>
                   </div><!--
-<!---->               <div class="form-group">
+<!---->               
+                    <div class="form-group">
+                    <form:label path = "datum" for="datum">Datum</form:label>
+                    <form:input type="text"  id = "dateInput" placeholder="Kliknite za unos" class="dateInput" path = "datum"/>
+                  </div>
+                    <div class="form-group">
                     <form:label path = "napomena" for="napomena">Napomena</form:label>
                     <form:input type="text" class="form-control" id = "napomena" placeholder="Napomena"  path = "napomena"/>
                   </div>
@@ -48,6 +55,12 @@
               </form:form>
 </div>
 </div>
+
+<script src="${pageContext.request.contextPath}/resources/lib/date-selector-master/src/gm-date-selector.js"></script>
+
+<script type="text/javascript">
+    dateSelector( '.dateInput');
+</script>  
 
 </body>
 </html>

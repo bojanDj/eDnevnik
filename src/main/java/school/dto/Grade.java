@@ -6,6 +6,7 @@
 package school.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -38,6 +40,8 @@ public class Grade implements Serializable{
     @ManyToOne 
     @JoinColumn(name="predmetID")
     private Subject predmet;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date datum;
 
     public Grade(long ocenaID, int broj, String napomena, GradeType tipOcene, Professor profesor, Student ucenik, Subject predmet) {
         this.ocenaID = ocenaID;
@@ -51,6 +55,14 @@ public class Grade implements Serializable{
 
     
     public Grade() {
+    }
+
+    public Date getDatum() {
+        return datum;
+    }
+
+    public void setDatum(Date datum) {
+        this.datum = datum;
     }
 
     public Subject getPredmet() {
